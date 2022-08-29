@@ -35,13 +35,13 @@ pipeline {
          }
          stage("docher hub login"){
          steps{
-         sh 'echo $DOCKERHUB_CREDENTIALS_PSW'
+         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
          }
          }
          stage("Docker Push Image"){
          steps{
-         sh 'echo pushlanıyor'
-            //sh 'docker push $registry/$repository:${version.replaceFirst(/^.*\//, '')}-${createDate}'
+         docker push $registry/javadevops:v3
+
          }
 
          }
