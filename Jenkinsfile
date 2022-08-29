@@ -8,6 +8,9 @@ pipeline {
     tools{
     maven 'Maven3'
     }
+    environment{
+    DOCKERHUB_CREDENTIALS=credentials('emirhan-dockerhub')
+    }
      stages {
 
          stage("with mvn build project") {
@@ -29,6 +32,11 @@ pipeline {
           sh  ' docker build -f Dockerfile -t javadevops:v2 . '
          }
 
+         }
+         stage("docher hub login"){
+         steps{
+         sh 'echo $DOCKERHUB_CREDENTIALS_PSW'
+         }
          }
          stage("Docker Push Image"){
          steps{
