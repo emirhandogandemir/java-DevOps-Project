@@ -10,7 +10,7 @@ public class CityController {
 
     @GetMapping("/city")
     public String getCıty(){
-        return "İstanbul";
+        return "Ankara";
     }
 
 }
