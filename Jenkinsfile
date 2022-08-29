@@ -29,7 +29,7 @@ pipeline {
          }
          stage("docker build image"){
          steps{
-          sh  ' docker build -f Dockerfile -t javadevops:v2 . '
+          sh  ' docker build -f Dockerfile -t javadevops:v3 . '
          }
 
          }
