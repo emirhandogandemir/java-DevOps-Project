@@ -29,7 +29,7 @@ pipeline {
          }
          stage("docker build image"){
          steps{
-          sh  ' docker build -f Dockerfile -t cıcdjava:v1 . '
+          sh  ' docker build -f Dockerfile -t cicdjava:v1 . '
          }
 
          }
@@ -40,14 +40,14 @@ pipeline {
          }
          stage("Docker Push Image"){
          steps{
-        sh  'docker push dogandemir51/cıcdjava:v1'
+        sh  'docker push dogandemir51/cicdjava:v1'
 
          }
 
          }
          stage("docker delete local images"){
          steps{
-          sh 'docker rmi -f cıcdjava:v1'
+          sh 'docker rmi -f cicdjava:v1'
          }
 
 
