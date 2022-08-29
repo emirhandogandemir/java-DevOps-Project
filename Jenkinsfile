@@ -40,7 +40,7 @@ pipeline {
          }
          stage("Docker Push Image"){
          steps{
-         docker push $registry/javadevops:v3
+        sh  'docker push $registry/javadevops:v3'
 
          }
 
