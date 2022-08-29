@@ -1,17 +1,16 @@
+
+
+String registry = "dogandemir51"
+String repository="parametrik deger"
+
 pipeline {
     agent any
     tools{
     maven 'Maven3'
     }
      stages {
-
-         stage("checkout scm"){
-         steps{
-         checkout(scm)
-         }
          }
          stage("with mvn build project") {
-             steps {
                 // git 'https://github.com/denizturkmen/SpringBootMysqlCrud.git'
                  echo "Java VERSION"
                  sh 'java -version'
@@ -22,16 +21,15 @@ pipeline {
                 // sh "mvn package"
                  //sh "mvn test"
                  sh "mvn clean install"
-
-             }
          }
          stage("docker build image"){
-         steps{
-
-          sh  ' docker build -f Dockerfile -t javadevops:v1 . '
-
+          sh  ' docker build -f Dockerfile -t javadevops:v2 . '
          }
-
+         stage("Docker Push Image"){
+          //sh 'docker push $registry/$repository:${version.replaceFirst(/^.*\//, '')}-${createDate}'
+         }
+         stage("docker delete local images"){
+          sh 'docker rmi -f javadevops:v2'
          }
 
      }
