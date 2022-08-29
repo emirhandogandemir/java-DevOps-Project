@@ -32,6 +32,7 @@ pipeline {
          }
          stage("Docker Push Image"){
          steps{
+         sh 'echo pushlanıyor'
             //sh 'docker push $registry/$repository:${version.replaceFirst(/^.*\//, '')}-${createDate}'
          }
 
