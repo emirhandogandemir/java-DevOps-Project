@@ -1,11 +1,15 @@
 pipeline {
-    agent any
-    tools {
-        jdk 'jdk'
-        maven '3.8.3'
-
+    agent
+    node {
+        maven
     }
     stages {
+
+        stage("checkout scm"){
+        steps{
+        checkout(scm)
+        }
+        }
         stage("with mvn build project") {
             steps {
                // git 'https://github.com/denizturkmen/SpringBootMysqlCrud.git'
@@ -22,8 +26,12 @@ pipeline {
             }
         }
         stage("docker build image"){
-      sh """  docker build -f Dockerfile -t javaDevOps:v1 .
-      """
+        steps{
+
+         sh  ' docker build -f Dockerfile -t javaDevOps:v1 .
+
+        }
+
         }
 
     }
