@@ -30,12 +30,14 @@ pipeline {
          stage("docker build image"){
          steps{
           sh  ' docker build -f Dockerfile -t cicdjava:v1 . '
+
          }
 
          }
          stage("docher hub login"){
          steps{
          sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+           sh 'docker tag cicdjava:v1 dogandemir51/cicdjava:v1'
          }
          }
          stage("Docker Push Image"){
