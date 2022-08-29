@@ -29,7 +29,7 @@ pipeline {
          }
          stage("docker build image"){
          steps{
-          sh  ' docker build -f Dockerfile -t javadevops:v3 . '
+          sh  ' docker build -f Dockerfile -t cıcdjava:v1 . '
          }
 
          }
@@ -40,14 +40,14 @@ pipeline {
          }
          stage("Docker Push Image"){
          steps{
-        sh  'docker push dogandemir51/javadevops:v3'
+        sh  'docker push dogandemir51/cıcdjava:v1'
 
          }
 
          }
          stage("docker delete local images"){
          steps{
-          sh 'docker rmi -f javadevops:v2'
+          sh 'docker rmi -f cıcdjava:v1'
          }
 
 
