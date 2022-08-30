@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   pullPolicy: IfNotPresent
   repository: dogandemir51/cicdjava
-  tag: latest
+  tag: "latest"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
