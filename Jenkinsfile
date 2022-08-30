@@ -15,7 +15,6 @@ pipeline {
 
          stage("with mvn build project") {
          steps{
-          // git 'https://github.com/denizturkmen/SpringBootMysqlCrud.git'
                                    echo "Java VERSION"
                                    sh 'java -version'
                                    echo "Maven VERSION"
